@@ -19,16 +19,19 @@ router.post('/reg', function (req, res) {
 router.post('/login', function (req, res) {
     var user = req.body;
     User.findOne({username: user.username, password: encrypt(user.password)}, function (err, user) {
-        if (err) {
-            res.status(500).json({msg: err})
+        if (err || user == null) {
+            //res.status(500).json({msg: err})\
+            res.redirect('/')
         } else {
             req.session.user = user;
-            res.json(user)
+            /* res.json(user)*/
+            res.render('header.ejs', {data: user})
         }
     })
 });
-router.post('/logout', function (req, res) {
+router.get('/logout', function (req, res) {
     req.session.user = null;
-    res.status(200).json({msg: 'success'})
+    //res.status(200).json({msg: 'success'})
+    res.redirect('/')
 });
 module.exports = router;
