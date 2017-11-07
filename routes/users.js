@@ -2,13 +2,13 @@ var express = require('express');
 var User = require('../models').User;
 var crypto = require('crypto');
 var router = express.Router();
-function encrypt(str) {
+encrypt = (str) => {
     return crypto.createHash('md5').update(str).digest('hex')
 }
-router.post('/reg', function (req, res) {
+router.post('/reg', (req, res)=> {
     var user = req.body;
     user.password = encrypt(user.password)
-    new User(user).save(function (err, user) {
+    new User(user).save((err, user)=> {
         if (err) {
             res.status(500).json({msg: err});
         } else {
@@ -25,11 +25,11 @@ router.post('/login', function (req, res) {
         } else {
             req.session.user = user;
             /* res.json(user)*/
-            res.render('header.ejs', {data: user})
+            res.render('header', {data: user})
         }
     })
 });
-router.get('/logout', function (req, res) {
+router.get('/logout', (req, res)=> {
     req.session.user = null;
     //res.status(200).json({msg: 'success'})
     res.redirect('/')
