@@ -5,45 +5,82 @@
     </div>
     <div class="main">
         <ul class="item-list">
-            <li class="nav icon1">
-                <span>内容管理</span>
-                <div class="rate">
-                    <i class="refurbish"></i>
-                    <i class="site"></i>
-                    <i class="add"></i>
+            <li>
+                <div class="nav icon1">
+                    <span>内容管理</span>
+                    <div class="rate">
+                        <i class="refurbish"></i>
+                        <i class="site"></i>
+                        <i class="add"></i>
+                    </div>
+                </div>
+                <div class="subnav">
+                    <ul class="subnav-item-list">
+                        <li class="subnav-list">
+                            <div class="subnav-main">
+                                <span class="subnav-shrink">
+                                    <img src="/images/elbow-end-plus.gif" alt="">
+                                </span>
+                                <span class="subnav-icon">
+                                    <img src="/images/folder.gif" alt="">
+                                </span>
+                                <div class="subnav-summay">
+                                    <span>创业知识库</span>
+                                    <div>
+                                        <span class="subnav-shrink">
+                                            <img src="/images/elbow-end-plus.gif" alt="">
+                                        </span>
+                                        <span class="subnav-icon">
+                                            <img src="/images/folder.gif" alt="">
+                                        </span>
+                                        <div>
+                                            <span>首页</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </li>
-            <li class="nav icon2">
-                <span>模板管理</span>
-                <div class="rate">
-                    <i class="refurbish"></i>
-                    <i class="search"></i>
-                    <i class="add"></i>
+            <li>
+                <div class="nav icon2">
+                    <span>模板管理</span>
+                    <div class="rate">
+                        <i class="refurbish"></i>
+                        <i class="search"></i>
+                        <i class="add"></i>
+                    </div>
                 </div>
             </li>
-            <li class="nav icon3">
-                <span>资源管理</span>
-                <div class="rate">
-                    <i class="refurbish"></i>
-                    <i class="search"></i>
-                    <i class="add"></i>
+            <li>
+                <div class="nav icon3">
+                    <span>资源管理</span>
+                    <div class="rate">
+                        <i class="refurbish"></i>
+                        <i class="search"></i>
+                        <i class="add"></i>
+                    </div>
                 </div>
             </li>
-            <li class="nav icon4">
-                <span>我的工作台</span>
-                <div class="rate">
-                    <i class="refurbish"></i>
-                    <i class="add"></i>
+            <li>
+                <div class="nav icon4">
+                    <span>我的工作台</span>
+                    <div class="rate">
+                        <i class="refurbish"></i>
+                        <i class="add"></i>
+                    </div>
                 </div>
             </li>
-            <li class="nav icon5">
-                <span>系统管理</span>
-                <div class="rate">
-                    <i class="refurbish"></i>
-                    <i class="add"></i>
+            <li>
+                <div class="nav icon5">
+                    <span>系统管理</span>
+                    <div class="rate">
+                        <i class="refurbish"></i>
+                        <i class="add"></i>
+                    </div>
                 </div>
             </li>
-
         </ul>
     </div>
 </div>
@@ -118,6 +155,11 @@
     .main {
         font-size: 0.11rem;
 
+    }
+
+    .main .item-list {
+        border-left: 1px solid #99bbe8;
+        border-right: 1px solid #99bbe8;
     }
 
     .main .nav {
@@ -205,6 +247,23 @@
     .main .nav span {
         margin-left: .2rem;
         color: #222;
+    }
+
+    .subnav {
+        height: calc(100% - .2rem * 4);
+    }
+
+    .subnav .subnav-main {
+        line-height: .2rem;
+        padding: 0 0.1rem;
+        /* border: 1px dashed #99bbe8;*/
+        /* background: #c6d9e7;*/
+        box-sizing: border-box;
+    }
+
+    .subnav .subnav-main .subnav-summay {
+        display: inline-block;
+        vertical-align: top;
     }
 
     li {
