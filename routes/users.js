@@ -25,7 +25,7 @@ router.post('/login', function (req, res) {
         } else {
             req.session.user = user;
             /* res.json(user)*/
-            res.render('header', {data: user})
+            res.render('index.ejs', {data: user})
         }
     })
 });

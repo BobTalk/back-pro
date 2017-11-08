@@ -1,0 +1,230 @@
+<div class="aside" id="aside">
+    <div class="menu">
+        <span class="title">菜单导航</span>
+        <div class="icon" onclick="aside.toggleMenu()"></div>
+    </div>
+    <div class="main">
+        <ul class="item-list">
+            <li class="nav icon1">
+                <span>内容管理</span>
+                <div class="rate">
+                    <i class="refurbish"></i>
+                    <i class="site"></i>
+                    <i class="add"></i>
+                </div>
+            </li>
+            <li class="nav icon2">
+                <span>模板管理</span>
+                <div class="rate">
+                    <i class="refurbish"></i>
+                    <i class="search"></i>
+                    <i class="add"></i>
+                </div>
+            </li>
+            <li class="nav icon3">
+                <span>资源管理</span>
+                <div class="rate">
+                    <i class="refurbish"></i>
+                    <i class="search"></i>
+                    <i class="add"></i>
+                </div>
+            </li>
+            <li class="nav icon4">
+                <span>我的工作台</span>
+                <div class="rate">
+                    <i class="refurbish"></i>
+                    <i class="add"></i>
+                </div>
+            </li>
+            <li class="nav icon5">
+                <span>系统管理</span>
+                <div class="rate">
+                    <i class="refurbish"></i>
+                    <i class="add"></i>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<div class="show" id="show">
+    <div class="show-icon" onclick="aside.toggleMenu()"></div>
+</div>
+<style>
+    .aside {
+        position: absolute;
+        width: 1.98rem;
+        left: 0.03rem;
+        height: calc(100% - 0.6rem - 0.65rem);
+        border: 1px solid #99bbe8;
+        transition: left .3s linear 0s;
+        background: #FFF;
+        z-index: 9999;
+    }
+
+    .menu {
+        font-size: 0.12rem;
+        color: #15428b;
+        padding: .05rem .1rem;
+        font-weight: bold;
+        border-bottom: 1px solid #99bbe8;
+        background: url("/images/navigate.gif") no-repeat #d0def0;
+        background-position-y: center;
+        background-position-x: .1rem;
+    }
+
+    .menu .title {
+        margin-left: .2rem;
+    }
+
+    .menu .icon {
+        float: right;
+        width: .15rem;
+        height: .15rem;
+        background: url("/images/tool-sprites.gif") no-repeat;
+        background-position-y: -1.65rem;
+        cursor: pointer;
+    }
+
+    .menu .icon:hover {
+        background-position: -0.15rem -1.65rem;
+    }
+
+    .show {
+        position: absolute;
+        width: .2rem;
+        left: -.2rem;
+        padding: .1rem 0;
+        height: calc(100% - 0.6rem - 0.65rem);
+        border: 1px solid #99bbe8;
+        background: #d0def0;
+        text-align: center;
+        overflow: hidden;
+        z-index: 8888;
+        box-sizing: border-box;
+        transition: left .2s linear .3s;
+    }
+
+    .show .show-icon {
+        position: relative;
+        left: 50%;
+        width: .15rem;
+        height: .15rem;
+        background: url("/images/tool-sprites.gif") no-repeat;
+        background-position-y: -1.65rem;
+        transform: translateX(-50%);
+    }
+
+    .main {
+        font-size: 0.11rem;
+
+    }
+
+    .main .nav {
+        padding: .05rem .1rem;
+        border-bottom: 1px solid #99bbe8;
+        background-color: #c6d9e7;
+        background-repeat: no-repeat;
+    }
+
+    .main .nav.icon1 {
+        background-image: url("/images/folder_content.png");
+        background-position-y: center;
+        background-position-x: .1rem;
+    }
+
+    .main .nav.icon2 {
+        background-image: url("/images/folder_star.png");
+        background-position-y: center;
+        background-position-x: .1rem;
+    }
+
+    .main .nav.icon3 {
+        background-image: url("/images/folder_resource.png");
+        background-position-y: center;
+        background-position-x: .1rem;
+    }
+
+    .main .nav.icon4 {
+        background-image: url("/images/folder_mywork.png");
+        background-position-y: center;
+        background-position-x: .1rem;
+    }
+
+    .main .nav.icon5 {
+        background-image: url("/images/display.png");
+        background-position-y: center;
+        background-position-x: .1rem;
+    }
+
+    .nav .rate {
+        height: .15rem;
+        float: right;
+    }
+
+    .nav .rate i {
+        display: inline-block;
+        width: 0.15rem;
+        height: 0.15rem;
+        background: url("/images/tool-sprites.gif") no-repeat;
+        cursor: pointer;
+    }
+
+    .nav .rate .add {
+        background-position-y: -2.4rem;
+    }
+
+    .nav .rate .add:hover {
+        background-position-x: -0.15rem;
+    }
+
+    .nav .rate .refurbish {
+        background-position-y: -2.25rem;
+    }
+
+    .nav .rate .refurbish:hover {
+        background-position-x: -0.15rem;
+    }
+
+    .nav .rate .site {
+        background-position-y: -1.95rem;
+    }
+
+    .nav .rate .site:hover {
+        background-position-x: -0.15rem;
+    }
+
+    .nav .rate .search {
+        background-position-y: -2.7rem;
+    }
+
+    .nav .rate .search:hover {
+        background-position-x: -0.15rem;
+    }
+
+    .main .nav span {
+        margin-left: .2rem;
+        color: #222;
+    }
+
+    li {
+        list-style: none;
+    }
+</style>
+<script type="text/javascript">
+    const aside = {
+        asideE: document.getElementById('aside'),
+        showE: document.getElementById('show'),
+        flag: true,
+        toggleMenu: ()=> {
+            if (aside.flag) {
+                aside.asideE.style.cssText = 'left:-1.98rem;'
+                aside.showE.style.cssText = 'left:0.03rem;'
+            } else {
+                aside.asideE.style.cssText = 'left:.03rem;'
+                aside.showE.style.cssText = 'left:-0.2rem;'
+            }
+            aside.flag = !aside.flag
+        }
+    }
+</script>

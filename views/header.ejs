@@ -1,6 +1,119 @@
-<p>sss6<%= data.username %></p>
-<style>
-    p {
-        display: block;
+<script>
+    var winWith = document.documentElement.clientWidth || document.body.clientWidth;
+    if (winWith > 640) {
+        document.documentElement.style.fontSize = 100 + "px";
+        window.htmlFontSize = 100;
+    } else {
+        document.documentElement.style.fontSize = winWith / 640 * 100 + "px";
+        window.htmlFontSize = winWith / 640 * 100;
     }
+
+</script>
+<header class="head">
+    <div class="bg">
+        <div class="logo">
+            <img src="/images/oms_logo.png" alt="oms_logo">
+        </div>
+        <div class="depict">
+            <b>运营管理系统</b>
+        </div>
+        <div class="operate">
+            <ul>
+                <li class="name">欢迎: <%= data.username %></li>
+                <li class="edit"><a href="">编辑</a></li>
+                <li class="apply"><a href="">应用</a></li>
+                <li class="help"><a href="">帮助</a></li>
+                <li class="quit"><a href="/users/logout">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .head {
+        width: 100%;
+        height: .6rem;
+        line-height: .6rem;
+        background: url("/images/bar_bg_extend.png") repeat-x;
+        border-bottom: .02rem solid #8380f3;
+        overflow: hidden;
+    }
+
+    .head .bg {
+        height: 100%;
+        width: 100%;
+        padding: 0 .1rem;
+        background: url("/images/bar_bg.png") no-repeat;
+        box-sizing: border-box;
+    }
+
+    .bg .logo {
+        position: relative;
+        float: left;
+        width: 1.5rem;
+        height: .4rem;
+        padding: .05rem .2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        border-right: 1px solid #6792c8;
+        box-sizing: border-box;
+    }
+
+    .bg .logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .bg .depict {
+        height: 100%;
+        float: left;
+        font-size: .16rem;
+        margin-left: .2rem;
+    }
+
+    .bg .operate {
+        height: 100%;
+        float: right;
+        font-size: .12rem;
+    }
+
+    .bg .operate li {
+        display: inline-block;
+    }
+
+    .bg .operate .help, .apply, .quit, .edit {
+        width: .4rem;
+        margin-left: .05rem;
+        text-align: right;
+        box-sizing: border-box;
+        background-position-y: center;
+        background-repeat: no-repeat;
+        background-size: 30%;
+
+    }
+
+    .bg .operate .help {
+        background-image: url("/images/help.png");
+    }
+
+    .bg .operate .apply {
+        background-image: url("/images/app.png");
+    }
+
+    .bg .operate .quit {
+        background-image: url("/images/exit.png");
+    }
+
+    .bg .operate .edit {
+        background-image: url("/images/edit.png");
+    }
+
 </style>
