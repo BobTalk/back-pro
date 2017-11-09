@@ -13,7 +13,7 @@
                     <div class="rate">
                         <i class="refurbish"></i>
                         <i class="site"></i>
-                        <i class="add add-show"></i>
+                        <i class="add add-show" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
                 <div class="subnav subnav-show">
@@ -591,11 +591,16 @@
             }
             aside.flag = !aside.flag
         },
+        plus: (event)=> {
+            event.stopPropagation();
+            var tar = event.target || window.event.target;
+            console.log(tar.parentNode.parentNode.childNodes+"  44");
+            aside.toggleShow.call(tar.parentNode.parentNode.childNodes[1],event)
+        },
         toggleShow: (event)=> {
             event.stopPropagation();
             var tar = event.target || window.event.target;
             var flagT = tar.parentNode.nextElementSibling.className.indexOf('subnav-show');
-
             for (var i = 0, len = aside.subnav.length; i < len; i++) {
                 aside.subnav[i].className = 'subnav';
                 aside.add[i].className = 'add';
