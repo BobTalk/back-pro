@@ -86,7 +86,7 @@
                     <div class="rate">
                         <i class="refurbish"></i>
                         <i class="site"></i>
-                        <i class="add"></i>
+                        <i class="add" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
                 <div class="subnav">
@@ -159,7 +159,7 @@
                     <div class="rate">
                         <i class="refurbish"></i>
                         <i class="site"></i>
-                        <i class="add"></i>
+                        <i class="add" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
                 <div class="subnav">
@@ -232,7 +232,7 @@
                     <div class="rate">
                         <i class="refurbish"></i>
                         <i class="site"></i>
-                        <i class="add"></i>
+                        <i class="add" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
                 <div class="subnav">
@@ -305,7 +305,7 @@
                     <div class="rate">
                         <i class="refurbish"></i>
                         <i class="site"></i>
-                        <i class="add"></i>
+                        <i class="add" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
                 <div class="subnav">
@@ -594,8 +594,18 @@
         plus: (event)=> {
             event.stopPropagation();
             var tar = event.target || window.event.target;
-            console.log(tar.parentNode.parentNode.childNodes+"  44");
-            aside.toggleShow.call(tar.parentNode.parentNode.childNodes[1],event)
+            var flagT = tar.parentNode.parentNode.nextElementSibling.className.indexOf('subnav-show');
+            for (var i = 0, len = aside.subnav.length; i < len; i++) {
+                aside.subnav[i].className = 'subnav';
+                aside.add[i].className = 'add';
+            }
+            if (flagT < 0) {
+                tar.parentNode.parentNode.nextElementSibling.className = 'subnav subnav-show'
+                tar.className = 'add add-show'
+            } else {
+                tar.parentNode.parentNode.nextElementSibling.className = 'subnav'
+                tar.className = 'add'
+            }
         },
         toggleShow: (event)=> {
             event.stopPropagation();
