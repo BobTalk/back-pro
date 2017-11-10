@@ -19,60 +19,31 @@
                 <div class="subnav subnav-show">
                     <ul class="subnav-item-list">
                         <li class="subnav-list">
-                            <div class="subnav-main">
+                            <div class="subnav-main" onmouseup='aside.operation(event)' id="subnav-main">
                                 <span class="subnav-shrink">
                                     <img src="/images/elbow-end-plus.gif" alt="">
                                 </span>
                                 <span class="subnav-icon">
                                     <img src="/images/folder.gif" alt="">
                                 </span>
-                                <div class="subnav-summay">
-                                    <span>创业知识库</span>
-                                    <div style="margin-left: -.2rem">
+                                <span class="subnav-summay">创业知识库</span>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <div style="margin-left: -.2rem">
                                         <span class="subnav-shrink">
                                             <img src="/images/elbow-end-plus.gif" alt="">
                                         </span>
-                                        <span class="subnav-icon">
+                                            <span class="subnav-icon">
                                             <img src="/images/folder.gif" alt="">
                                         </span>
-                                        <div style="display: inline-block;vertical-align: top">
-                                            <span>首页</span>
+                                            <div style="display: inline-block;vertical-align: top">
+                                                <span>首页</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div style="margin-left: -.2rem">
-                                        <span class="subnav-shrink">
-                                            <img src="/images/elbow-end-plus.gif" alt="">
-                                        </span>
-                                        <span class="subnav-icon">
-                                            <img src="/images/folder.gif" alt="">
-                                        </span>
-                                        <div style="display: inline-block;vertical-align: top">
-                                            <span>首页</span>
-                                        </div>
-                                    </div>
-                                    <div style="margin-left: -.2rem">
-                                        <span class="subnav-shrink">
-                                            <img src="/images/elbow-end-plus.gif" alt="">
-                                        </span>
-                                        <span class="subnav-icon">
-                                            <img src="/images/folder.gif" alt="">
-                                        </span>
-                                        <div style="display: inline-block;vertical-align: top">
-                                            <span>首页</span>
-                                        </div>
-                                    </div>
-                                    <div style="margin-left: -.2rem">
-                                        <span class="subnav-shrink">
-                                            <img src="/images/elbow-end-plus.gif" alt="">
-                                        </span>
-                                        <span class="subnav-icon">
-                                            <img src="/images/folder.gif" alt="">
-                                        </span>
-                                        <div style="display: inline-block;vertical-align: top">
-                                            <span>首页</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                     </ul>
@@ -376,6 +347,11 @@
 <div class="show" id="show">
     <div class="show-icon" onclick="aside.toggleMenu()"></div>
 </div>
+<div id="menu">
+    <ul>
+        <li>5555</li>
+    </ul>
+</div>
 <style>
     .aside {
         position: absolute;
@@ -563,6 +539,7 @@
         /* border: 1px dashed #99bbe8;*/
         /* background: #c6d9e7;*/
         box-sizing: border-box;
+        cursor: pointer;
     }
 
     .subnav .subnav-main .subnav-summay {
@@ -573,8 +550,26 @@
     li {
         list-style: none;
     }
+
+    #menu {
+        position: absolute;
+        display: none;
+        z-index: 99999;
+        border: 1px solid #000000;
+        background: #00B7FF;
+
+    }
 </style>
 <script type="text/javascript">
+    var body = document.documentElement || document.body;
+    var menu = document.getElementById("menu");
+    body.oncontextmenu = (event)=> {
+        if (event.clientX <= 196) {
+            return false;
+        } else {
+            menu.style.display = "none"
+        }
+    }
     const aside = {
         asideE: document.getElementById('aside'),
         showE: document.getElementById('show'),
@@ -622,6 +617,27 @@
                 tar.parentNode.nextElementSibling.className = 'subnav'
                 tar.parentNode.getElementsByClassName('add')[0].className = 'add'
             }
-        }
+        },
+        operation: (event)=> {
+            var btnNum = event.button;
+            if (btnNum == 2) {
+                var e = event || window.event;
+                //鼠标点的坐标
+                var oX = e.clientX;
+                var oY = e.clientY;
+                //菜单出现后的位置
+                menu.style.display = "block";
+                menu.style.left = oX / 100 + "rem";
+                menu.style.top = oY / 100 + "rem";
+                return false;//取消右键点击的默认事件
+            } else if (btnNum == 1) {
+                console.log("中键！");
+            } else if (btnNum == 0) {
+                alert("您点击了鼠标左键！")
+            }
+            else {
+                alert("您点击了" + btnNum + "号键，我不能确定它的名称。");
+            }
+        },
     }
 </script>
