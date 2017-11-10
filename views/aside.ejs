@@ -19,7 +19,7 @@
                 <div class="subnav subnav-show">
                     <ul class="subnav-item-list">
                         <li class="subnav-list">
-                            <div class="subnav-main" onmouseup='aside.operation(event)' id="subnav-main">
+                            <div class="subnav-main" onmouseup='aside.operation(event)'>
                                 <span class="subnav-shrink">
                                     <img src="/images/elbow-end-plus.gif" alt="">
                                 </span>
@@ -28,10 +28,10 @@
                                 </span>
                                 <span class="subnav-summay">创业知识库</span>
                             </div>
-                            <div>
+                            <div class="subnav-main" style="margin-left: 0.2rem">
                                 <ul>
                                     <li>
-                                        <div style="margin-left: -.2rem">
+                                        <div>
                                         <span class="subnav-shrink">
                                             <img src="/images/elbow-end-plus.gif" alt="">
                                         </span>
@@ -347,12 +347,135 @@
 <div class="show" id="show">
     <div class="show-icon" onclick="aside.toggleMenu()"></div>
 </div>
-<div id="menu">
-    <ul>
-        <li>5555</li>
+<div id="menu" class="context">
+    <ul class="context-menu-item">
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/refresh(1).gif" alt="">
+                </div>
+                <span class="context-title">更新此栏目</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/add.gif" alt="">
+                </div>
+                <span class="context-title">添加子栏目</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/delete.gif" alt="">
+                </div>
+                <span class="context-title">删除此栏目</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/folder_new.png" alt="">
+                </div>
+                <span class="context-title">查看栏目链接</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/linkTo.png" alt="">
+                </div>
+                <span class="context-title">推荐栏目到</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/folder_wrench.png" alt="">
+                </div>
+                <span class="context-title">栏目属性</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/folder_wrench.png" alt="">
+                </div>
+                <span class="context-title">下线规则设置</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/folder_star.png" alt="">
+                </div>
+                <span class="context-title">批量属性设置</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/forum.gif" alt="">
+                </div>
+                <span class="context-title">模板设置</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/publishPreview.gif" alt="">
+                </div>
+                <span class="context-title">合成预览</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/publishPreview.gif" alt="">
+                </div>
+                <span class="context-title">可视化预览</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/publish.gif" alt="">
+                </div>
+                <span class="context-title">发布此栏目</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/queue.gif" alt="">
+                </div>
+                <span class="context-title">导入节目单</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/refexportEpg.gif" alt="">
+                </div>
+                <span class="context-title">导入栏目</span>
+            </div>
+        </li>
+        <li class="context-menu">
+            <div class="context-menu-title">
+                <div class="context-icon">
+                    <img src="/images/importEpg.gif" alt="">
+                </div>
+                <span class="context-title">导入子栏目</span>
+            </div>
+        </li>
     </ul>
 </div>
 <style>
+    li {
+        list-style: none;
+    }
+
     .aside {
         position: absolute;
         width: 1.98rem;
@@ -547,22 +670,45 @@
         vertical-align: top;
     }
 
-    li {
-        list-style: none;
-    }
-
-    #menu {
+    .context {
+        width: 1.26rem;
+        height: auto;
+        padding: .02rem;
+        text-size-adjust: none;
+        font-size: .11rem;
         position: absolute;
         display: none;
         z-index: 99999;
-        border: 1px solid #000000;
-        background: #00B7FF;
+        border: 1px solid #718bb7;
+        background: #f0f0f0;
+    }
 
+    .context .context-menu {
+        padding: 0 .05rem;
+        line-height: 0.2rem;
+        cursor: pointer;
+    }
+
+    .context-menu .context-icon {
+        width: .16rem;
+        height: .16rem;
+        display: inline-block;
+        vertical-align: text-top;
+        margin-right: .05rem;
+        overflow: hidden;
+    }
+
+    .context-icon img {
+        width: 100%;
+        height: 100%;
     }
 </style>
 <script type="text/javascript">
     var body = document.documentElement || document.body;
     var menu = document.getElementById("menu");
+    body.onclick = function (event) {
+        menu.style.display = "none"
+    }
     body.oncontextmenu = (event)=> {
         if (event.clientX <= 196) {
             return false;
@@ -629,14 +775,13 @@
                 menu.style.display = "block";
                 menu.style.left = oX / 100 + "rem";
                 menu.style.top = oY / 100 + "rem";
-                return false;//取消右键点击的默认事件
             } else if (btnNum == 1) {
                 console.log("中键！");
             } else if (btnNum == 0) {
-                alert("您点击了鼠标左键！")
+                console.log("您点击了鼠标左键！")
             }
             else {
-                alert("您点击了" + btnNum + "号键，我不能确定它的名称。");
+                console.log("您点击了" + btnNum + "号键，我不能确定它的名称。");
             }
         },
     }
