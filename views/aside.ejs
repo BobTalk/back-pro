@@ -11,8 +11,8 @@
                          onclick="aside.toggleShow(event)"></div>
                     <span>内容管理</span>
                     <div class="rate">
-                        <i class="refurbish"></i>
-                        <i class="site"></i>
+                        <i class="refurbish" title="全部刷新"></i>
+                        <i class="site" title="站点过滤"></i>
                         <i class="add add-show" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
                          onclick="aside.toggleShow(event)"></div>
                     <span>模板管理</span>
                     <div class="rate">
-                        <i class="refurbish"></i>
-                        <i class="site"></i>
+                        <i class="refurbish" title="全部刷新"></i>
+                        <i class="site" title="站点过滤"></i>
                         <i class="add" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
@@ -128,8 +128,8 @@
                          onclick="aside.toggleShow(event)"></div>
                     <span>资源管理</span>
                     <div class="rate">
-                        <i class="refurbish"></i>
-                        <i class="site"></i>
+                        <i class="refurbish" title="全部刷新"></i>
+                        <i class="site" title="站点过滤"></i>
                         <i class="add" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
@@ -201,8 +201,8 @@
                          onclick="aside.toggleShow(event)"></div>
                     <span>我的工作台</span>
                     <div class="rate">
-                        <i class="refurbish"></i>
-                        <i class="site"></i>
+                        <i class="refurbish" title="全部刷新"></i>
+                        <i class="site" title="站点过滤"></i>
                         <i class="add" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
@@ -274,8 +274,8 @@
                          onclick="aside.toggleShow(event)"></div>
                     <span>系统管理</span>
                     <div class="rate">
-                        <i class="refurbish"></i>
-                        <i class="site"></i>
+                        <i class="refurbish" title="全部刷新"></i>
+                        <i class="site" title="站点过滤"></i>
                         <i class="add" onclick="aside.plus(event)"></i>
                     </div>
                 </div>
@@ -348,7 +348,7 @@
     <div class="show-icon" onclick="aside.toggleMenu()"></div>
 </div>
 <div id="menu" class="context">
-    <ul class="context-menu-item">
+    <ul class="context-menu-item" onclick="subAside.showMenu(event)">
         <li class="context-menu">
             <div class="context-menu-title">
                 <div class="context-icon">
@@ -456,7 +456,7 @@
         <li class="context-menu">
             <div class="context-menu-title">
                 <div class="context-icon">
-                    <img src="/images/refexportEpg.gif" alt="">
+                    <img src="/images/exportEpg.gif" alt="">
                 </div>
                 <span class="context-title">导入栏目</span>
             </div>
@@ -784,5 +784,57 @@
                 console.log("您点击了" + btnNum + "号键，我不能确定它的名称。");
             }
         },
+    }
+    const subAside = {
+        showMenu: (event)=> {
+            const subValue = event.target.innerText;
+            switch (subValue) {
+                case '更新此栏目':
+                    console.log("更新此栏目");
+                    break;
+                case '添加子栏目':
+                    console.log("添加子栏目");
+                    break;
+                case '删除此栏目':
+                    console.log("删除此栏目");
+                    break;
+                case '查看栏目链接':
+                    console.log("查看栏目链接");
+                    break;
+                case '推荐栏目到':
+                    console.log("推荐栏目到");
+                    break;
+                case '栏目属性':
+                    console.log("更新此栏目");
+                    break;
+                case '下线规则设置':
+                    console.log("更新此栏目");
+                    break;
+                case '批量属性设置':
+                    console.log("更新此栏目");
+                    break;
+                case '模板设置':
+                    console.log("更新此栏目");
+                    break;
+                case '合成预览':
+                    console.log("合成预览");
+                    break;
+                case '可视化预览':
+                    console.log("可视化预览");
+                    break;
+                case '发布此栏目':
+                    console.log("发布此栏目");
+                    break;
+                case '导入节目单':
+                    console.log("导入节目单");
+                    break;
+                case '导入栏目':
+                    console.log("导入栏目");
+                    break;
+                default:
+                    console.log('导入子栏目');
+            }
+
+        }
     }
 </script>
