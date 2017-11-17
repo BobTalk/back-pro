@@ -18,17 +18,28 @@ router.post('/reg', (req, res)=> {
 })
 router.post('/login', function (req, res) {
     var user = req.body;
-    User.findOne({username: user.username, password: encrypt(user.password)}, function (err, user) {
-        if (err || user == null) {
-            //res.status(500).json({msg: err})\
-            res.redirect('/')
-        } else {
-            req.session.user = user;
-            /* res.json(user)*/
-            res.render('index.ejs', {data: user})
-        }
-    })
+    if (req.session.user == null) {
+        User.findOne({username: user.username, password: encrypt(user.password)}, function (err, user) {
+            if (err || user == null) {
+                //res.status(500).json({msg: err})\
+                res.redirect('/')
+            } else {
+                req.session.user = user;
+                /* res.json(user)*/
+                res.render('index.ejs', {data: user})
+            }
+        })
+    } else {
+        res.render('index.ejs', {data: req.session.user})
+    }
 });
+router.get('/login', function (req, res) {
+    if (req.session.user == null) {
+        res.redirect('/')
+    } else {
+        res.render('index.ejs', {data: req.session.user})
+    }
+})
 router.get('/logout', (req, res)=> {
     req.session.user = null;
     //res.status(200).json({msg: 'success'})
